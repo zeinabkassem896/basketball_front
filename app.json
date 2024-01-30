@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "LBA",
+    "slug": "LBA",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/logo_1024_1024.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/Onboarding_1284_2778.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.LBA",
+      "versionCode": 2,
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
