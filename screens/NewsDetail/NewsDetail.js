@@ -11,10 +11,7 @@ import {
 import { NewsDetailStyle } from "./NewsDetailStyle";
 
 import { format } from 'date-fns';
-// import {API_LINK} from '@env';
-
-
-const API_LINK = process.env.API_LINK
+import {API_LINK} from '@env';
 
 
 const NewsDetail = ({ route, navigation }) => {

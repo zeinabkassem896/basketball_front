@@ -108,10 +108,18 @@ const Games = (props) => {
           new_array.push(new_obj)
           }
         )
+        var round_active = [];
+       round_active = response.data.data.filter(each=>each.active === 1);
 
-       var round_active = response.data.data.filter(each=>each.active === 1);
-       setRoundValue(round_active[0].id)
-       setPhaseValue(round_active[0].phase.id)
+       if(round_active.length === 0){
+        setRoundValue(response.data.data[0].id)
+        setPhaseValue(response.data.data[0].phase.id)
+       }
+       else{
+        setRoundValue(round_active[0].id)
+        setPhaseValue(round_active[0].phase.id)
+       }
+       
 
       setRoundItems(new_array)
         
@@ -262,9 +270,9 @@ const Games = (props) => {
           {Object.keys(gamesArray) === 0 ? "" :
           Object.keys(gamesArray).map((each,key)=> 
             <>
-              <Text key={each.created_at} style={GameStyle.textInBetween}>{format(new Date(each), 'd MMMM Y')}</Text>
+              <Text key={Math.random()} style={GameStyle.textInBetween}>{format(new Date(each), 'd MMMM Y')}</Text>
               {gamesArray[each].map(inner_each=>
-                <CardScore key={inner_each.created_at} data={inner_each} marginPercentage={0}/>
+                <CardScore key={Math.random()} data={inner_each} marginPercentage={0}/>
               )
               }
             

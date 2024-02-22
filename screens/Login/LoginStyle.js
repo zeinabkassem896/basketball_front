@@ -1,10 +1,5 @@
 import { StyleSheet } from 'react-native';
-// import {BACKGROUND_COLOR, GRAY_COLOR, ORANGE_COLOR, RED_COLOR} from '@env';
-
-const ORANGE_COLOR = process.env.ORANGE_COLOR
-const GRAY_COLOR = process.env.GRAY_COLOR
-const RED_COLOR = process.env.RED_COLOR
-
+import {BACKGROUND_COLOR, GRAY_COLOR, ORANGE_COLOR, RED_COLOR} from '@env';
 
     export const LoginStyle = StyleSheet.create({
     container: {

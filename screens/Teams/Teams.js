@@ -15,12 +15,8 @@ import Header from "../../components/Header/Header";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-// import {API_LINK} from '@env';
-import { useIsFocused } from "@react-navigation/native";
+import {API_LINK} from '@env';
 import { AuthContext } from "../../Context/AuthContext";
-
-const API_LINK = process.env.API_LINK
-
 
 const Teams = ({navigation}, props) => {
 
@@ -30,7 +26,6 @@ const Teams = ({navigation}, props) => {
   const [teamInput, SetTeamInput] = useState('')
 
   const FilterTeam = ()=>{
-    console.log("teamarray ",teamsArray)
    var filter_team = teamsArray.filter(each=>(each.name.toLowerCase().includes(teamInput.toLowerCase())) )
     SetTeamFilter(filter_team)
   }
@@ -61,7 +56,7 @@ const Teams = ({navigation}, props) => {
         </View>
         <ScrollView showsHorizontalScrollIndicator={false}>
             {teamFilter.map(each=>(
-                <TouchableOpacity key={each.created_at} style={TeamStyle.teamView} onPress={() =>
+                <TouchableOpacity key={Math.random()} style={TeamStyle.teamView} onPress={() =>
                     {
                         navigation.navigate('TeamData', {
                           team_id: each.id,
@@ -69,10 +64,10 @@ const Teams = ({navigation}, props) => {
                         });
                       }
                 }>
-                    <View key={each.id} style={TeamStyle.teamsOrangeView}></View>
-                    <View key={each.created_at} style={TeamStyle.teamsInnerView}>
-                        <Image key={each.created_at} source={{ uri: `${API_LINK}/storage/${each.image}`}} style={TeamStyle.image_size}/>
-                        <Text key={each.created_at}>{each.name}</Text>
+                    <View key={Math.random()} style={TeamStyle.teamsOrangeView}></View>
+                    <View key={Math.random()} style={TeamStyle.teamsInnerView}>
+                        <Image key={Math.random()} source={{ uri: `${API_LINK}/storage/${each.image}`}} style={TeamStyle.image_size}/>
+                        <Text key={Math.random()}>{each.name}</Text>
                     </View>
                 </TouchableOpacity>
             ))}

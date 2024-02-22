@@ -1,10 +1,5 @@
 import { StyleSheet } from 'react-native';
-// import {BACKGROUND_COLOR, ORANGE_COLOR, RED_COLOR} from '@env';
-
-const ORANGE_COLOR = process.env.ORANGE_COLOR
-
-
-
+import {ORANGE_COLOR} from '@env';
 
 
     export const MoreStyle = StyleSheet.create({

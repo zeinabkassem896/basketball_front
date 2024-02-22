@@ -17,19 +17,13 @@ import { HomeStyle } from "../Home/HomeStyle";
 
 import Header from "../../components/Header/Header";
 
-import DateTimePicker from '@react-native-community/datetimepicker';
 import axios from "axios";
 import { useIsFocused } from "@react-navigation/native";
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUser, faCalendarAlt, faEarthAsia, faLock, faEyeSlash, faEye, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-// import {API_LINK, GRAY_COLOR } from '@env';
+import {API_LINK, GRAY_COLOR } from '@env';
 import { AuthContext } from "../../Context/AuthContext";
-
-
-
-const GRAY_COLOR = process.env.GRAY_COLOR
-const API_LINK = process.env.API_LINK
 
 
 
@@ -243,7 +237,7 @@ const Register = ({navigation},props) => {
               <ScrollView style={RegisterStyle.flatContainer}>
                 <View style={RegisterStyle.flatContainerDiv}>
                   {filterItem.map(item =>
-                    <TouchableOpacity style={[RegisterStyle.row,FavoriteTeam === item.id ? RegisterStyle.favoriteTeamView: '']} key={item.id} onPress={()=>setFavoriteTeam(item.id)}>
+                    <TouchableOpacity style={[RegisterStyle.row,FavoriteTeam === item.id ? RegisterStyle.favoriteTeamView: '']} key={Math.random()} onPress={()=>setFavoriteTeam(item.id)}>
                       <Image source={{uri: `${API_LINK}/${item.image}`}} style={RegisterStyle.teamImage}/>
                       <Text style={FavoriteTeam === item.id ? RegisterStyle.favoriteTeamText: ''}>{item.name}</Text>
                     </TouchableOpacity>

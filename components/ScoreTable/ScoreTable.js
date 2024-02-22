@@ -28,15 +28,15 @@ const ScoreTable = ({ data=[] }) => {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
           {data.map((each,key) => 
-          <View key={each.created_at} style={[ScoreTableStyle.headerFlex, ScoreTableStyle.innerTable]}>
+          <View key={Math.random()} style={[ScoreTableStyle.headerFlex, ScoreTableStyle.innerTable]}>
               <Text key={each.image} style={[ScoreTableStyle.headerText, ScoreTableStyle.PosWidth]}>{++key}</Text>
-              <View key={each.created_at} style={[ScoreTableStyle.headerText, ScoreTableStyle.ClubWidth]}>
-                  <Image key={each.created_at} source={{uri: `${API_LINK}/storage/${each.team.image}`,}} style={ScoreTableStyle.GameImg}/>
-                  <Text key={each.created_at} style={ScoreTableStyle.nameText}>{each.team.name}</Text>
+              <View key={Math.random()} style={[ScoreTableStyle.headerText, ScoreTableStyle.ClubWidth]}>
+                  <Image key={Math.random()} source={{uri: `${API_LINK}/storage/${each.team.image}`,}} style={ScoreTableStyle.GameImg}/>
+                  <Text key={Math.random()} style={ScoreTableStyle.nameText}>{each.team.name}</Text>
               </View>
-              <Text key={each.id} style={ScoreTableStyle.headerText}>{each.win}</Text>
-              <Text key={each.id+each.loss} style={ScoreTableStyle.headerText}>{each.loss}</Text>
-              <Text key={each.id+each.win} style={ScoreTableStyle.headerText}>{each.win/2}%</Text>
+              <Text key={Math.random()} style={ScoreTableStyle.headerText}>{each.win}</Text>
+              <Text key={Math.random()} style={ScoreTableStyle.headerText}>{each.loss}</Text>
+              <Text key={Math.random()} style={ScoreTableStyle.headerText}>{each.win/2}%</Text>
           </View>
           )}
         

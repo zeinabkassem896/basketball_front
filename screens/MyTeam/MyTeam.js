@@ -19,14 +19,10 @@ import {
   import PlayerInfo from "../../components/PlayerInfo/PlayerInfo";
 
   import axios from "axios";
-  // import {API_LINK} from '@env'
+  import {API_LINK} from '@env'
   import { format } from 'date-fns';
   import { useIsFocused } from "@react-navigation/native";
   import { AuthContext } from "../../Context/AuthContext";
-
-
-  const API_LINK = process.env.API_LINK
-
 
 
 const MyTeam = ({ navigation  }, props) => {
@@ -132,8 +128,9 @@ const MyTeam = ({ navigation  }, props) => {
               </ImageBackground>
           </View>
 
-          {Object.keys(gamesTeamArray) === 0 ? "" :
+          {gamesTeamArray?.[Object.keys(gamesTeamArray)[0]]?.[0] ?
               <CardScore marginPercentage={'-25%'} data={gamesTeamArray[Object.keys(gamesTeamArray)[0]][0]} />
+              :""
           }
           <View style={MyTeamStyle.whiteView}>
               <View style={MyTeamStyle.ButtonDiv}>
@@ -155,9 +152,6 @@ const MyTeam = ({ navigation  }, props) => {
                           <View style={MyTeamStyle.profileButton}>
                               <Text style={MyTeamStyle.profileButtonText}>Average</Text>
                           </View>
-                          {/* <View style={[MyTeamStyle.profileButton, MyTeamStyle.profileButton2]}>
-                              <Text style={[MyTeamStyle.profileButtonText,MyTeamStyle.profileButtonText2]}>Accumulated</Text>
-                          </View> */}
                       </View>
                       <View style={MyTeamStyle.circlesDiv}>
                           <CircleScore key={Math.random()} color1={'#FF7A00'} color2={'#FFD600'} data={teamScore.length >0 ? teamScore[0].ptsp: null} title={'pts scored'}/>
@@ -173,12 +167,12 @@ const MyTeam = ({ navigation  }, props) => {
                       <Text style={MyTeamStyle.profileTitle}>Team News</Text> : null }
                       <ScrollView horizontal={true} style={MyTeamStyle.horizontalScroll} showsHorizontalScrollIndicator={false}>
                       {newsArray.filter(each_filter => each_filter.type === 'article').slice(0, 5).map(each =>
-                          <TouchableOpacity key={each.created_at} onPress={() => {
+                          <TouchableOpacity key={Math.random()} onPress={() => {
                               navigation.navigate('NewsDetail', {
                                 all_details: each
                               });
                           }}>
-                              <Card key={each.created_at} data={each}/>
+                              <Card key={Math.random()} data={each}/>
                           </TouchableOpacity>
                       )}
                       </ScrollView>
@@ -186,12 +180,12 @@ const MyTeam = ({ navigation  }, props) => {
                       <Text style={MyTeamStyle.profileTitle}>Latest Videos</Text>: null}
                       <ScrollView horizontal={true} style={MyTeamStyle.horizontalScroll} showsHorizontalScrollIndicator={false}> 
                       {newsArray.filter(each_filter => each_filter.type === 'video').slice(0, 5).map(each =>
-                          <TouchableOpacity key={each.created_at} onPress={() => {
+                          <TouchableOpacity key={Math.random()} onPress={() => {
                               navigation.navigate('NewsDetail', {
                                 all_details: each
                               });
                           }}>
-                              <Card key={each.created_at} data={each}/>
+                              <Card key={Math.random()} data={each}/>
                           </TouchableOpacity>
                       )}
                       </ScrollView>
@@ -228,10 +222,10 @@ const MyTeam = ({ navigation  }, props) => {
                               Object.keys(playersTeamArray) === 0 ? "" : 
                               Object.keys(playersTeamArray).map((each,key)=>(
                                   <>
-                                      <Text key={each.created_at} style={[MyTeamStyle.profileTitle, MyTeamStyle.profileTitle2]}>{each}</Text>
+                                      <Text key={Math.random()} style={[MyTeamStyle.profileTitle, MyTeamStyle.profileTitle2]}>{each}</Text>
                                       {
                                           playersTeamArray[each].map(inner_each=>
-                                              <PlayerInfo key={inner_each.created_at} data={inner_each}/>
+                                              <PlayerInfo key={Math.random()} data={inner_each}/>
                                           )
                                       }
                                   </>
@@ -244,12 +238,12 @@ const MyTeam = ({ navigation  }, props) => {
                             <>
                             {key === 0 ? null : 
                             <>
-                              <Text key={each.created_at} style={MyTeamStyle.profileTitle}>{format(new Date(each), 'd MMMM Y')}</Text>
+                              <Text key={Math.random()} style={MyTeamStyle.profileTitle}>{format(new Date(each), 'd MMMM Y')}</Text>
                               {
                                   gamesTeamArray[each].map((inner_each,inner_key)=>
                                   <>
                                       {inner_key === 0 && key === 0 ? "" : 
-                                          <CardScore key={inner_each.created_at} data={inner_each} marginPercentage={0}/>
+                                          <CardScore key={Math.random()} data={inner_each} marginPercentage={0}/>
                                       }
                                       </>
                                   )

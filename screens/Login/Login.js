@@ -11,17 +11,13 @@ import {
 
 import { LoginStyle } from "./LoginStyle";
 
-// import { GRAY_COLOR } from '@env';
+import { GRAY_COLOR } from '@env';
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import { AuthContext } from "../../Context/AuthContext";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faEnvelope, faLock, faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons'
 // import Checkbox from 'expo-checkbox';
-
-const GRAY_COLOR = process.env.GRAY_COLOR
-
-
 
 
 const Login = ({navigation}) => {

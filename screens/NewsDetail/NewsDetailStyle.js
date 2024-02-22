@@ -1,8 +1,5 @@
 import { StyleSheet } from 'react-native';
-// import {BACKGROUND_COLOR, ORANGE_COLOR, RED_COLOR} from '@env';
-
-const BACKGROUND_COLOR = process.env.BACKGROUND_COLOR
-
+import {BACKGROUND_COLOR} from '@env';
 
 
     export const NewsDetailStyle = StyleSheet.create({

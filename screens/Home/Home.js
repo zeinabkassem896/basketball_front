@@ -17,10 +17,8 @@ import OrangeButton from "../../components/OrangeButton/OrangeButton";
 import CardScore from "../../components/Cardscore/CardScore";
 
 import axios from "axios";
-// import {API_LINK} from '@env';
+import {API_LINK} from '@env';
 import { format } from 'date-fns'
-
-const API_LINK = process.env.API_LINK
 
 
 const Home = ({ navigation }) => {

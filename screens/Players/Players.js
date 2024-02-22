@@ -17,12 +17,9 @@ import PlayerInfo from "../../components/PlayerInfo/PlayerInfo";
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faMagnifyingGlass, faSliders } from "@fortawesome/free-solid-svg-icons";
-// import {API_LINK} from '@env';
+import {API_LINK} from '@env';
 import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
-
-const API_LINK = process.env.API_LINK
-
 
 
 
@@ -118,10 +115,10 @@ const Players = () => {
           <Text style={PlayerStyle.playerTitle}>Team</Text>
           <View style={PlayerStyle.teamsFlex}>
             {teamsArray.map(each=>(
-              <TouchableOpacity key={each.id} onPress={()=> setChooseTeam(each.id)}>
-                <View style={chosenTeam === each.id ? [PlayerStyle.teamDiv,PlayerStyle.teamActiveDiv] : PlayerStyle.teamDiv} key={each.id}>
-                  <Image key={each.id} source={{ uri: `${API_LINK}/storage/${each.image}`}} style={PlayerStyle.image_size}/>
-                  <Text key={each.created_at}>{each.name}</Text>
+              <TouchableOpacity key={Math.random()} onPress={()=> setChooseTeam(each.id)}>
+                <View style={chosenTeam === each.id ? [PlayerStyle.teamDiv,PlayerStyle.teamActiveDiv] : PlayerStyle.teamDiv} key={Math.random()}>
+                  <Image key={Math.random()} source={{ uri: `${API_LINK}/storage/${each.image}`}} style={PlayerStyle.image_size}/>
+                  <Text key={Math.random()}>{each.name}</Text>
                 </View>
               </TouchableOpacity>
             ))}
@@ -151,7 +148,7 @@ const Players = () => {
         </View>
         <ScrollView>
           {playersFilterArray.map((each,key)=>(
-            <PlayerInfo key={each.created_at} data={each}/>
+            <PlayerInfo key={Math.random()} data={each}/>
           ))}
         </ScrollView>
       </>
